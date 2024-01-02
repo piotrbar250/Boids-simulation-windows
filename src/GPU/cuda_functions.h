@@ -29,6 +29,7 @@ namespace cuda_functions
 namespace cuda_functions_grid
 {
     void allocateGrid(int boidsCount, int cellCount, int *&device_gridCellIndex, int *&device_boidSequence, int *&device_gridCellStart, int *&device_gridCellEnd, glm::vec2*& device_positionsSorted, glm::vec2*& device_velocitiesSorted, int*& colorIndex, int*& colorSorted);
+    void freeGrid(int* device_gridCellIndex, int* device_boidSequence, int* device_gridCellStart, int* device_gridCellEnd, glm::vec2* device_positionsSorted, glm::vec2* device_velocitiesSorted, int* colorIndex, int* colorSorted);
     void computeGridCellIndex(int boidsCount, Params params, glm::vec2* device_positions, glm::vec2* device_velocities, int* device_gridCellIndex, int* device_gridCellStart, int* device_gridCellEnd, int* boidSequence, glm::vec2* device_positionsSorted, glm::vec2* device_velocitiesSorted, int* colorIndex, int* colorSorted);
     void computeNextFrame(int boidsCount, BoidData boidData);
     void swapFrames(int boidsCount, glm::vec2* positions, glm::vec2* velocities, glm::vec2* newPositions, glm::vec2* newVelocities);

@@ -85,6 +85,7 @@ public:
 	~FlockGridGPU()
 	{
 		cuda_functions::freeDataOnGPU(device_positions, device_velocities, device_newPositions, device_newVelocities, device_accelerations, device_translations);
+		cuda_functions_grid::freeGrid(device_gridCellIndex, device_boidSequence, device_gridCellStart, device_gridCellEnd, device_positionsSorted, device_velocitiesSorted, device_colorIndexes, device_colorSorted);
 	}
 
 	void computeNextFrame(void** cuda_vbo_resource, Params params)

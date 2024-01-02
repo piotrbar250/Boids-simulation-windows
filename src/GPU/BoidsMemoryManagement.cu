@@ -82,4 +82,16 @@ namespace cuda_functions_grid
 		cudaMalloc((void**)&colorIndex, boidsCount * sizeof(int));
 		cudaMalloc((void**)&colorSorted, boidsCount * sizeof(int));
 	}
+
+	void freeGrid(int* device_gridCellIndex, int* device_boidSequence, int* device_gridCellStart, int* device_gridCellEnd, glm::vec2* device_positionsSorted, glm::vec2* device_velocitiesSorted, int* colorIndex, int* colorSorted)
+	{
+		cudaFree(device_gridCellIndex);
+		cudaFree(device_boidSequence);
+		cudaFree(device_gridCellStart);
+		cudaFree(device_gridCellEnd);
+		cudaFree(device_positionsSorted);
+		cudaFree(device_velocitiesSorted);
+		cudaFree(colorIndex);
+		cudaFree(colorSorted);
+	}
 }
