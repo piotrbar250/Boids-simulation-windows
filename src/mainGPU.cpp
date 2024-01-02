@@ -84,10 +84,12 @@ int main()
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
-		simulation = toggleSwitch("simulation", simulation);
+		ImGui::Begin("Properties");
+		simulation = toggleSwitch("Simulation", simulation);
 		ImGui::SliderFloat("Alignment", &(params.alignmentForce), 0.0f, 2.0f);
 		ImGui::SliderFloat("Cohesion", &(params.cohesionForce), 0.0f, 2.0f);
 		ImGui::SliderFloat("Separation", &(params.separationForce), 0.0f, 2.0f);
+		ImGui::End();
 
 		double cursorX, cursorY;
 		glfwGetCursorPos(window, &cursorX, &cursorY);
