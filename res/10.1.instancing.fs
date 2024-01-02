@@ -7,6 +7,5 @@ uniform vec3 u_Color;
 
 void main()
 {
-    // screenColor = vec4(u_Color, 1.0);
     screenColor = vec4(fragmentColor, 1.0);
 }
