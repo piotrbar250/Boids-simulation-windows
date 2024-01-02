@@ -49,19 +49,19 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>GLEW_STATIC; WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)src\vendor</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\GLEW\include;$(SolutionDir)src\vendor;$(SolutionDir)src\;$(SolutionDir)\res</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);glfw3.lib;opengl32.lib;glew32s.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(CudaToolkitLibDir);$(SolutionDir)Dependencies\GLFW\lib-vc2022;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(CudaToolkitLibDir);$(SolutionDir)dependencies\GLFW\lib-vc2022;$(SolutionDir)dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
       <CodeGeneration>compute_50,sm_50</CodeGeneration>
-      <Include>C:\Users\Piotr Baranowski\source\repos\Boids-simulation-windows\Dependencies\GLFW\include</Include>
+      <Include>C:\Users\Piotr Baranowski\source\repos\Boids-simulation-windows\dependencies\GLFW\include</Include>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -71,7 +71,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GLEW_STATIC; WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)src\vendor</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\GLEW\include;$(SolutionDir)src\vendor;$(SolutionDir)src\;$(SolutionDir)\res</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -80,46 +80,58 @@
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);glfw3.lib;opengl32.lib;glew32s.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(CudaToolkitLibDir);$(SolutionDir)Dependencies\GLFW\lib-vc2022;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(CudaToolkitLibDir);$(SolutionDir)dependencies\GLFW\lib-vc2022;$(SolutionDir)dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
-      <Include>C:\Users\Piotr Baranowski\source\repos\Boids-simulation-windows\Dependencies\GLFW\include</Include>
+      <Include>C:\Users\Piotr Baranowski\source\repos\Boids-simulation-windows\dependencies\GLFW\include</Include>
       <CodeGeneration>compute_50,sm_50</CodeGeneration>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CudaCompile Include="src\GPU\BoidGridKernel.cu" />
-    <CudaCompile Include="src\GPU\BoidKernel.cu" />
+    <CudaCompile Include="src\GPU naive\BoidKernel.cu" />
     <CudaCompile Include="src\GPU\BoidsMemoryManagement.cu" />
     <CudaCompile Include="src\GPU\cuda_dependencies.cu" />
     <CudaCompile Include="src\GPU\Neighbours.cu" />
-    <CudaCompile Include="src\kernel.cu" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\CPU\Boid.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\mainImGui.cpp" />
-    <ClCompile Include="src\mainTmp.cpp" />
+    <ClCompile Include="src\mainCPU.cpp" />
+    <ClCompile Include="src\mainGPU.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui_demo.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\utils\BoidSimulationStructures.h" />
     <ClInclude Include="src\CPU\Boid.h" />
-    <ClInclude Include="src\CPU\BoidsRenderer.h" />
+    <ClInclude Include="src\Graphics\BoidsRenderer.h" />
     <ClInclude Include="src\CPU\Flock.h" />
-    <ClInclude Include="src\global.hpp" />
-    <ClInclude Include="src\GPU\BoidGPU.h" />
+    <ClInclude Include="src\utils\global.h" />
     <ClInclude Include="src\GPU\cuda_functions.h" />
-    <ClInclude Include="src\GPU\cuda_functions_grid.h" />
-    <ClInclude Include="src\GPU\FlockGPU.h" />
+    <ClInclude Include="src\GPU naive\FlockGPU.h" />
     <ClInclude Include="src\GPU\FlockGridGPU.h" />
     <ClInclude Include="src\GPU\Grid.cuh" />
-    <ClInclude Include="src\header.h" />
-    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Graphics\Shader.h" />
+    <ClInclude Include="src\UI\UI.h" />
+    <ClInclude Include="src\vendor\imgui\imconfig.h" />
+    <ClInclude Include="src\vendor\imgui\imgui.h" />
+    <ClInclude Include="src\vendor\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="src\vendor\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="src\vendor\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="src\vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="src\vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="src\vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="src\vendor\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\10.1.instancing.fs" />
-    <None Include="src\10.1.instancing.vs" />
-    <None Include="src\parameters.json" />
+    <None Include="res\10.1.instancing.fs" />
+    <None Include="res\10.1.instancing.vs" />
+    <None Include="res\parameters.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

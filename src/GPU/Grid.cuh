@@ -1,12 +1,10 @@
-#ifndef MY_CUDA_HEADER_H
-#define MY_CUDA_HEADER_H
-
+#pragma once
 #include <glm/glm.hpp>
+#include "utils/BoidSimulationStructures.h"
 #include "cuda_functions.h"
 
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
-
 
 namespace grid
 {
@@ -73,4 +71,3 @@ namespace grid
         }
     }
 }
-#endif // MY_CUDA_HEADER_H

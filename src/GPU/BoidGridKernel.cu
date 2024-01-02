@@ -5,6 +5,7 @@
 #include <iostream>
 #include <glm/glm.hpp>
 
+#include "utils/BoidSimulationStructures.h"
 #include "Grid.cuh"
 
 namespace cuda_functions_grid
@@ -17,7 +18,7 @@ namespace cuda_functions_grid
     {
         if (code != cudaSuccess)
         {
-            std::cerr << "GPUassert: " << cudaGetErrorString(code) << " " << file << " " << line << std::endl;
+            std::cerr << "GPU assert: " << cudaGetErrorString(code) << " " << file << " " << line << std::endl;
             if (abort)
                 exit(code);
         }
